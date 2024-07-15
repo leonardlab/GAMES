@@ -315,10 +315,13 @@ def calculate_threshold_chi_sq(
     for i, ref_val in enumerate(chi_sq_ref_list):
         chi_sq_distribution.append(ref_val - chi_sq_fit_list[i])
     confidence_interval = 99
-    threshold_chi_sq_ = np.percentile(chi_sq_distribution, confidence_interval)
-    threshold_chi_sq = float(threshold_chi_sq_)
+    delta_threshold_chi_sq_ = np.percentile(chi_sq_distribution, confidence_interval)
+    delta_threshold_chi_sq = float(delta_threshold_chi_sq_)
 
-    plot_chi_sq_distribution(chi_sq_distribution, threshold_chi_sq)
+    threshold_chi_sq = calibrated_chi_sq + delta_threshold_chi_sq
+
+
+    plot_chi_sq_distribution(chi_sq_distribution, delta_threshold_chi_sq)
     save_chi_sq_distribution(threshold_chi_sq, calibrated_parameters, calibrated_chi_sq)
 
     print("******************")

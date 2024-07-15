@@ -36,6 +36,6 @@ def set_model():
     return given_model
 
 
-file = open("/home/kate/Documents/Code/GitHub/GAMES/src/games/config/config.json", encoding="utf-8")
+file = open("/Users/kdreyer/Documents/Github/GAMES/src/games/config/config.json", encoding="utf-8")
 settings = json.load(file)
 model = set_model()
